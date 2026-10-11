@@ -11,6 +11,9 @@ from kaggle.models.v1.generator.deberta_generator import ChatLightningModule
 from kaggle.models.v1.utils.type import ChatDataset
 from kaggle.utils.constants import ModelPaths
 
+(ModelPaths.BASE_DIR / "v1" / "checkpoints").mkdir(parents=True, exist_ok=True)
+(ModelPaths.BASE_DIR / "v1" / "tb_logs").mkdir(parents=True, exist_ok=True)
+
 logger = TensorBoardLogger(ModelPaths.BASE_DIR / "v1" / "tb_logs", name="my_model")
 
 
@@ -48,7 +51,7 @@ def train():
     model = ChatLightningModule(model_name=MODEL_NAME, lr=1e-5)
 
     checkpoint_callback = ModelCheckpoint(
-        dirpath="checkpoints",
+        dirpath=ModelPaths.BASE_DIR / "v1" / "checkpoints",
         filename="best-checkpoint",
         save_top_k=1,
         monitor="val_loss",

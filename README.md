@@ -34,6 +34,28 @@ uv run python src/kaggle/utils/kaggle_api/data_download.py
 
 `src/kaggle/utils/raw_data/` はclone時には作成されない場合があります。ダウンロードスクリプトが実行時に必要なディレクトリを自動作成します。
 
+## 学習とTensorBoard
+
+学習を開始するには、次を実行します。
+
+```bash
+uv run python src/kaggle/models/v1/train.py
+```
+
+学習ログは `src/kaggle/models/v1/tb_logs/` に保存されます。学習とは別のターミナルでTensorBoardを起動します。
+
+```bash
+uv run tensorboard --logdir src/kaggle/models/v1/tb_logs --port 6006
+```
+
+ブラウザで次のURLを開くと、`train_loss` や `val_loss` などを確認できます。
+
+```text
+http://localhost:6006
+```
+
+VS Code RemoteやSSH環境で実行している場合は、VS Codeのポート転送でポート `6006` を転送してから開いてください。TensorBoardを終了するには、起動したターミナルで `Ctrl+C` を押します。
+
 ## ディレクトリ構成
 
 ```text
