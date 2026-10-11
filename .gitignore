@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# data files
+src/kaggle/utils/raw_data/*
+
+src/kaggle/models/*/data/*
+
+# Logs
+src/kaggle/models/*/checkpoints/*
+src/kaggle/models/*/tb_logs/*
