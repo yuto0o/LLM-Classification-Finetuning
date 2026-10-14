@@ -17,3 +17,9 @@ src/kaggle/models/*/data/*
 # Logs
 src/kaggle/models/*/checkpoints/*
 src/kaggle/models/*/tb_logs/*
+
+# 推論出力（提出用 CSV）
+src/kaggle/models/*/submissions/*
+
+# スモークテストの一時作業ディレクトリ
+src/kaggle/models/smoke/
